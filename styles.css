@@ -20,3 +20,55 @@
 
 /* Fresh release: family story + calendar status */
 .family-message{position:relative;z-index:1;display:flex;flex-direction:column;gap:24px;text-align:center;padding:25px;color:#714a7d}.family-message strong{font-family:Outfit,sans-serif;font-size:clamp(28px,3vw,44px);line-height:1.08}.family-message span{font-size:11px;font-weight:800;letter-spacing:2px}.brand-fallback{font-family:Outfit,sans-serif;font-size:18px;font-weight:800;color:#795080}.availability-status{font-size:12px;line-height:1.5;background:#eaf5fa;padding:12px 14px;border-radius:12px;margin:12px 0;color:#2b5265}.availability-status.error{background:#fff0ed;color:#8a403e}.availability-status.success{background:#e8f4ed;color:#286044}.booking-form select:disabled{opacity:.75;cursor:not-allowed;background:#f3f4f4}.dentist-photo img{object-fit:cover}
+
+/* HMO name-only cards: crisp, colorful and readable at every size */
+.hmo-name-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px 0 26px}
+.hmo-name-card{position:relative;min-height:146px;border-radius:22px;padding:20px 18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;box-shadow:0 6px 0 rgba(38,66,79,.07);border:1px solid rgba(34,65,77,.08);transition:transform .2s ease,box-shadow .2s ease}
+.hmo-name-card:hover{transform:translateY(-4px) rotate(-.5deg);box-shadow:0 12px 24px rgba(38,66,79,.10)}
+.hmo-name-card.peach{background:#ffe1d7}.hmo-name-card.lavender{background:#eadcf3}.hmo-name-card.mint{background:#d7f1e3}.hmo-name-card.butter{background:#fff0b8}.hmo-name-card.sky{background:#d5ebfb}.hmo-name-card.rose{background:#f9d9eb}
+.hmo-card-spark{position:absolute;right:13px;top:5px;font-size:34px;line-height:1;color:#815483;opacity:.48;transform:rotate(15deg)}
+.hmo-card-name{position:relative;z-index:1;font-family:Outfit,DM Sans,sans-serif;font-weight:800;letter-spacing:-.5px;line-height:1.14;color:#25424d;font-size:clamp(16px,1.55vw,23px);max-width:95%;overflow-wrap:anywhere}
+.hmo-card-foot{font-size:10px;letter-spacing:.035em;font-weight:800;color:#705b78;opacity:.82;text-transform:uppercase;margin-top:16px}
+@media(max-width:900px){.hmo-name-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.hmo-name-grid{gap:10px}.hmo-name-card{min-height:125px;padding:15px 12px;border-radius:16px}.hmo-card-name{font-size:15px}.hmo-card-foot{font-size:8px}.hmo-card-spark{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.hmo-name-card{transition:none}.hmo-name-card:hover{transform:none}}
+
+/* Mobile layout repair - October 2026 */
+html,body{max-width:100%;overflow-x:clip}
+img,svg{max-width:100%}
+.marquee{overflow:hidden;white-space:nowrap}
+.marquee-inner{display:flex;align-items:center;gap:0;width:max-content;text-align:left;padding:13px 0;animation:gutierrez-marquee 22s linear infinite;font-size:clamp(13px,3.6vw,17px);letter-spacing:2.5px}
+.marquee-inner>span{display:block;flex:none;padding-left:25px}
+.marquee-inner b{color:#795080;font-size:0.95em;font-weight:900}
+@keyframes gutierrez-marquee{to{transform:translateX(-50%)}}
+.family-visual{overflow:hidden}
+.family-message{max-width:100%;min-width:0;padding:30px 18px 95px;gap:16px}
+.family-message strong{font-size:clamp(24px,6.8vw,39px);line-height:1.12;overflow-wrap:normal}
+.family-visual .about-tag{position:absolute;bottom:15px;left:50%;right:auto;transform:translateX(-50%) rotate(-3deg);width:max-content;max-width:88%;font-size:clamp(13px,3.5vw,17px);padding:10px 14px;text-align:center;line-height:1.2;z-index:2}
+.about-grid>div,.booking-grid>div{min-width:0}
+.about-grid h2,.booking-grid h2{overflow-wrap:break-word}
+@media(max-width:680px){
+ .container{padding-left:20px;padding-right:20px}
+ .section{padding:58px 0}
+ .about-visual{height:350px;border-radius:30px}
+ .family-message{padding:25px 15px 100px}
+ .family-message strong{font-size:clamp(24px,6.5vw,35px)}
+ h2{font-size:clamp(32px,8.4vw,43px);letter-spacing:-1.3px;line-height:1.1}
+ .hero h1{font-size:clamp(43px,11vw,60px);letter-spacing:-2.5px}
+ .hero-grid{padding-top:35px}
+ .hero-art{width:100%;height:340px;transform:none;margin:0}
+ .hero-art .halo{width:min(82vw,330px);height:min(82vw,330px)}
+ .hero-art .tooth-shape{width:min(49vw,210px)}
+ .art-label{font-size:clamp(23px,6vw,32px);right:8px;top:5px}
+ .bubble{width:60px;height:60px;font-size:27px}
+ .bubble-one{left:3%;bottom:34px}
+ .bubble-two{right:2%;top:85px}
+ .sticker{right:3%;bottom:18px;font-size:14px;padding:10px 12px}
+ .floating-book{font-size:12px;padding:11px 14px;bottom:14px;right:12px;max-width:150px}
+ .about-grid{gap:35px}
+ .booking-portal-card{min-width:0}
+ .brand img{width:min(58vw,210px)}
+ .nav{gap:15px}
+}
+@media(max-width:390px){.floating-book{font-size:11px;padding:9px 11px}.family-message strong{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.marquee-inner{animation:none;width:auto;white-space:normal;flex-wrap:wrap;justify-content:center}.marquee-inner>span:nth-child(2){display:none}}
