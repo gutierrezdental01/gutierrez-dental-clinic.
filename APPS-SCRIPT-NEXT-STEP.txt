@@ -1,0 +1,33 @@
+GOOGLE APPS SCRIPT - REQUIRED BEFORE LIVE AVAILABILITY WORKS
+
+Your current Apps Script doGet returns JSON. GitHub Pages cannot reliably fetch this cross-origin.
+Replace ONLY your existing doGet(e) with the following read-only JSONP-capable version.
+Keep CALENDAR_ID, CLINIC_TIMEZONE and getAvailableSlots unchanged.
+
+function doGet(e) {
+  const params = e && e.parameter ? e.parameter : {};
+  const callback = params.callback;
+  if (callback && callback !== 'gutierrezAvailabilityCallback') {
+    return ContentService.createTextOutput('Invalid callback');
+  }
+  let response;
+  try {
+    if (!params.date || !params.procedure) throw new Error('Missing inputs');
+    const slots = getAvailableSlots(params.date, params.procedure);
+    response = { success: true, date: params.date, procedure: params.procedure, slots: slots };
+  } catch (err) {
+    response = { success: false, error: 'Availability unavailable' };
+  }
+  const json = JSON.stringify(response);
+  if (callback) {
+    return ContentService.createTextOutput('gutierrezAvailabilityCallback(' + json + ');')
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  }
+  return ContentService.createTextOutput(json).setMimeType(ContentService.MimeType.JSON);
+}
+
+IMPORTANT: After editing, use Deploy > Manage deployments > Edit (pencil) > New version > Deploy.
+Test the /exec URL with ?date=2026-10-19&procedure=cleaning&callback=gutierrezAvailabilityCallback
+It should return gutierrezAvailabilityCallback({...});
+
+SECURITY NOTE: This is a public READ-ONLY availability endpoint. Do NOT add booking writes, patient names, email addresses, HMO IDs, or private data to it. JSONP is suitable only for non-sensitive public availability data. A secure separate workflow is required for automated appointment submissions and HMO documents.
