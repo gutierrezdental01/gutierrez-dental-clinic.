@@ -20,3 +20,15 @@
 
 /* Fresh release: family story + calendar status */
 .family-message{position:relative;z-index:1;display:flex;flex-direction:column;gap:24px;text-align:center;padding:25px;color:#714a7d}.family-message strong{font-family:Outfit,sans-serif;font-size:clamp(28px,3vw,44px);line-height:1.08}.family-message span{font-size:11px;font-weight:800;letter-spacing:2px}.brand-fallback{font-family:Outfit,sans-serif;font-size:18px;font-weight:800;color:#795080}.availability-status{font-size:12px;line-height:1.5;background:#eaf5fa;padding:12px 14px;border-radius:12px;margin:12px 0;color:#2b5265}.availability-status.error{background:#fff0ed;color:#8a403e}.availability-status.success{background:#e8f4ed;color:#286044}.booking-form select:disabled{opacity:.75;cursor:not-allowed;background:#f3f4f4}.dentist-photo img{object-fit:cover}
+
+/* HMO name-only cards: crisp, colorful and readable at every size */
+.hmo-name-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px 0 26px}
+.hmo-name-card{position:relative;min-height:146px;border-radius:22px;padding:20px 18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;box-shadow:0 6px 0 rgba(38,66,79,.07);border:1px solid rgba(34,65,77,.08);transition:transform .2s ease,box-shadow .2s ease}
+.hmo-name-card:hover{transform:translateY(-4px) rotate(-.5deg);box-shadow:0 12px 24px rgba(38,66,79,.10)}
+.hmo-name-card.peach{background:#ffe1d7}.hmo-name-card.lavender{background:#eadcf3}.hmo-name-card.mint{background:#d7f1e3}.hmo-name-card.butter{background:#fff0b8}.hmo-name-card.sky{background:#d5ebfb}.hmo-name-card.rose{background:#f9d9eb}
+.hmo-card-spark{position:absolute;right:13px;top:5px;font-size:34px;line-height:1;color:#815483;opacity:.48;transform:rotate(15deg)}
+.hmo-card-name{position:relative;z-index:1;font-family:Outfit,DM Sans,sans-serif;font-weight:800;letter-spacing:-.5px;line-height:1.14;color:#25424d;font-size:clamp(16px,1.55vw,23px);max-width:95%;overflow-wrap:anywhere}
+.hmo-card-foot{font-size:10px;letter-spacing:.035em;font-weight:800;color:#705b78;opacity:.82;text-transform:uppercase;margin-top:16px}
+@media(max-width:900px){.hmo-name-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.hmo-name-grid{gap:10px}.hmo-name-card{min-height:125px;padding:15px 12px;border-radius:16px}.hmo-card-name{font-size:15px}.hmo-card-foot{font-size:8px}.hmo-card-spark{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.hmo-name-card{transition:none}.hmo-name-card:hover{transform:none}}
