@@ -18,3 +18,5 @@ CURRENT LIMITATIONS:
 - HMO logos are cropped from user-supplied provider posters, not independently verified official HD logos.
 - Verify HMO partner activation/coverage before presenting any as confirmed accredited providers.
 - Keep Google Calendar private. Do not put passwords, API secrets, or patient documents in GitHub.
+
+UPDATE: HMO directory uses colorful text-only cards, no HMO image assets required.
